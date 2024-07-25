@@ -9,15 +9,20 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -32,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -124,12 +130,28 @@ fun DaysStructure(
 fun WellnessTopAppBar(){
     CenterAlignedTopAppBar(title = {
         Surface {
+            Row(modifier = Modifier
+                .wrapContentSize(Alignment.Center),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+            IconButton(onClick = { /*TODO*/ }) {
+            Icon(painter = painterResource(id = R.drawable.baseline_child_care_24),
+                contentDescription = "menu option",
+                modifier = Modifier
+                    .height(dimensionResource(id = R.dimen.icon_height))
+            )
+            }
             Text(
                 text = stringResource(id = R.string.app_name),
-                style = MaterialTheme.typography.displayMedium)
+                style = MaterialTheme.typography.displayMedium,
+                )
+        }
         }
     })
 }
+
+
 @Preview
 @Composable
 fun AppDisplay(){

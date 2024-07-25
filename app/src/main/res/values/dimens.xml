@@ -4,4 +4,5 @@
     <dimen name="medium_padding">16.dp</dimen>
     <dimen name="large_padding">24.dp</dimen>
     <dimen name="image_height">150.dp</dimen>
+    <dimen name="icon_height">100.dp</dimen>
 </resources>
