@@ -30,21 +30,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.rememberAsyncImagePainter
 import com.example.a30daysofwellness.data.Wellness
 import com.example.a30daysofwellness.data.days
+import coil.compose.rememberImagePainter
 import com.example.a30daysofwellness.ui.theme.a30DaysOfWellnessTheme
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-         a30DaysOfWellnessTheme {
+         a30DaysOfWellnessTheme(darkTheme = false) {
          WellnessList()
          }
         }
@@ -101,6 +103,7 @@ fun DaysStructure(
               )
 
               Image(
+                //  painter = rememberAsyncImagePainter(model = wellness.imageId),
                   painter = painterResource(id = wellness.imageId),
                   contentDescription = "Image $day",
                   modifier = Modifier
